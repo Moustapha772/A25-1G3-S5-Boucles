@@ -39,30 +39,29 @@ def environnement_optimal(temp, poussiere, humidite):
     if not alerte:
         return "Tout est sous contrôle!"
     else:
-        return "Environnement non optimal"
-
+        return "Environement non optimal"
+listtemp=[]
+listpous=[]
+listhum=[]
 
 if __name__ == "__main__":
-#print(environnement_optimal(25, "faible", 40))
-#TODO: Creer 3 listes
-listes_temp= [10,13,15,17,20]
-listes_mots=["Te"]
+    for i in range(3):
+        while True:
+            try:
+                temp= float(input("Entrer la temprérature : "))
+                poussiere=input("entrer le niveau de poussiere : ")
+                humidite=float(input("quelle est l'humidité :"))
+                if temp < 0 and humidite <0 and poussiere != "moyen" and poussiere != "faible" and poussiere != "élevé":
+                    listtemp.append(temp)
+                    listpous.append(poussiere)
+                    listhum.append(humidite)
+                    break
 
-
-#TODO : pour 3 Ordinateur
-nb_ordinateur=input("Entre le nombre d'ordi")
-
-
-
-    #TODO : Demander temp, poussiere, humidite
-    #TODO : Mettres les 3 valeurs dans leurs listes
-
-temp= float(input("Entrez la température:"))
-poussiere=input("Entrez le niveau de poussiere :")
-humidite=float("Entrez l'humidité:")
-print(environnement_optimal(temp,poussiere,humidite))
-
-
-#TODO : Pour les 3 ordinateur
-    #TODO : utiliser la fonction et afficher le résultat
-print(environnement_optimal(temp,poussiere,humidite))
+            except:
+                print(environnement_optimal(temp,poussiere,humidite))
+    print("Les temperature")
+print("-".join(listtemp))
+print("Les niveaux de poussiere")
+print("-".join(listpous))
+print("Les niveaux d'humidité")
+print("-".join(listhum))
